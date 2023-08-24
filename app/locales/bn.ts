@@ -247,6 +247,7 @@ const bn: PartialLocaleType = {
   Store: {
     DefaultTopic: "নতুন সংলাপ",
     BotHello: "হ্যালো! আজকে আপনাকে কিভাবে সাহায্য করতে পারি?",
+    BotAbout: "",
     Error: "কিছু নিয়ে ভুল হয়েছে, পরে আবার চেষ্টা করুন।",
     Prompt: {
       History: (content: string) =>

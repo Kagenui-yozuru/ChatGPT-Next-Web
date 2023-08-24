@@ -270,6 +270,10 @@ const en: LocaleType = {
   },
   Store: {
     DefaultTopic: "New Conversation",
+    BotAbout:
+      "This platform, created by Yozuru based on ChatGPT Next, is dedicated to providing services exclusively to individuals and their close acquaintances. Each conversation incurs a fee, therefore please refrain from engaging in meaningless dialogues (although you are welcome to have enjoyable interactions, as those are meaningful).\n" +
+      "\n" +
+      'Furthermore, within this platform, there are predefined prompts and "masks" available, which are quite practical. If you wish to utilize models other than gpt-3.5-turbo, kindly reach out to me for further assistance.',
     BotHello: "Hello! How can I assist you today?",
     Error: "Something went wrong, please try again later.",
     Prompt: {

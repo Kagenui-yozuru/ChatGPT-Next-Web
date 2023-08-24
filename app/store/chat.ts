@@ -61,6 +61,10 @@ export const BOT_HELLO: ChatMessage = createMessage({
   role: "assistant",
   content: Locale.Store.BotHello,
 });
+export const BOT_ABOUT: ChatMessage = createMessage({
+  role: "assistant",
+  content: Locale.Store.BotAbout,
+});
 
 function createEmptySession(): ChatSession {
   return {

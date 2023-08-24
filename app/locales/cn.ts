@@ -266,7 +266,10 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "有什么可以帮你的吗",
+    BotAbout:
+      "本平台由 [Yozuru](http://82.156.158.48/) 基于 [ChatGPT Next](https://github.com/Yidadaa/ChatGPT-Next-Web) 搭建,仅为个人以及身边的朋友提供服务。每次对话都会 **产生费用** ，所以请避免进行无意义的对话（当然，你可以与它愉快地玩耍，这是有意义的）。\n" +
+      '此外，本平台内置了一些常用的 Prompt 和 "Mask" ，它们非常实用。如果需要使用除 gpt-3.5-turbo 以外的模型，请与我联系。',
+    BotHello: "有什么可以帮你的吗？",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,

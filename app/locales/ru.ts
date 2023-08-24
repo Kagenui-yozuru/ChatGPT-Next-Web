@@ -167,6 +167,7 @@ const ru: PartialLocaleType = {
   Store: {
     DefaultTopic: "Новый разговор",
     BotHello: "Здравствуйте! Как я могу вам помочь сегодня?",
+    BotAbout: "",
     Error: "Что-то пошло не так. Пожалуйста, попробуйте еще раз позже.",
     Prompt: {
       History: (content: string) =>

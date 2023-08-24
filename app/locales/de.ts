@@ -167,6 +167,7 @@ const de: PartialLocaleType = {
   Store: {
     DefaultTopic: "Neues Gespräch",
     BotHello: "Hallo! Wie kann ich Ihnen heute helfen?",
+    BotAbout: "",
     Error:
       "Etwas ist schief gelaufen, bitte versuchen Sie es später noch einmal.",
     Prompt: {
