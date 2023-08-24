@@ -139,6 +139,7 @@ const no: PartialLocaleType = {
   Store: {
     DefaultTopic: "Ny samtale",
     BotHello: "Hei! Hva kan jeg hjelpe deg med i dag?",
+    BotAbout: "",
     Error: "Noe gikk galt, vennligst prøv igjen senere.",
     Prompt: {
       History: (content: string) =>

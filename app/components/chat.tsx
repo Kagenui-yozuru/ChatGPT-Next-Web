@@ -46,6 +46,7 @@ import {
   useAppConfig,
   DEFAULT_TOPIC,
   ModelType,
+  BOT_ABOUT,
 } from "../store";
 
 import {
@@ -415,6 +416,7 @@ export function ChatActions(props: {
 
   // switch themes
   const theme = config.theme;
+
   function nextTheme() {
     const themes = [Theme.Auto, Theme.Light, Theme.Dark];
     const themeIndex = themes.indexOf(theme);
@@ -870,6 +872,9 @@ function _Chat() {
     const copiedHello = Object.assign({}, BOT_HELLO);
     if (!accessStore.isAuthorized()) {
       copiedHello.content = Locale.Error.Unauthorized;
+    } else if (BOT_ABOUT.content.length > 0) {
+      const about = Object.assign({}, BOT_ABOUT);
+      context.push(about);
     }
     context.push(copiedHello);
   }
@@ -915,6 +920,7 @@ function _Chat() {
   const [msgRenderIndex, _setMsgRenderIndex] = useState(
     Math.max(0, renderMessages.length - CHAT_PAGE_SIZE),
   );
+
   function setMsgRenderIndex(newIndex: number) {
     newIndex = Math.min(renderMessages.length - CHAT_PAGE_SIZE, newIndex);
     newIndex = Math.max(0, newIndex);

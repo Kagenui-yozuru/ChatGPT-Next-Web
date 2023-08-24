@@ -166,6 +166,7 @@ const es: PartialLocaleType = {
   Store: {
     DefaultTopic: "Nueva conversación",
     BotHello: "¡Hola! ¿Cómo puedo ayudarte hoy?",
+    BotAbout: "",
     Error: "Algo salió mal, por favor intenta nuevamente más tarde.",
     Prompt: {
       History: (content: string) =>

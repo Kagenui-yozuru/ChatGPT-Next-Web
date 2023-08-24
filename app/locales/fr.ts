@@ -220,6 +220,7 @@ const fr: PartialLocaleType = {
   Store: {
     DefaultTopic: "Nouvelle conversation",
     BotHello: "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
+    BotAbout: "",
     Error: "Quelque chose s'est mal passé, veuillez réessayer plus tard.",
     Prompt: {
       History: (content: string) =>

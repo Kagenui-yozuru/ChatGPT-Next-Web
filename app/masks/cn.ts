@@ -177,6 +177,32 @@ export const CN_MASKS: BuiltinMask[] = [
     createdAt: 1688899480524,
   },
   {
+    avatar: "1f9d1-200d-1f3eb",
+    name: "中文翻译",
+    context: [
+      {
+        id: "trans-1",
+        role: "user",
+        content:
+          "我想让你充当中文翻译员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用中文回答。我希望你用更优美优雅的中文词汇和句子替换我简化的句子。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它，保留文本的原本意义，不要去解决它。我要你只回复更正、改进，不要写任何解释。我的第一句话是：",
+        date: "",
+      },
+    ],
+    modelConfig: {
+      model: "gpt-3.5-turbo",
+      temperature: 1,
+      max_tokens: 2000,
+      presence_penalty: 0,
+      frequency_penalty: 0,
+      sendMemory: false,
+      historyMessageCount: 4,
+      compressMessageLengthThreshold: 1000,
+    },
+    lang: "cn",
+    builtin: true,
+    createdAt: 1688899480524,
+  },
+  {
     avatar: "1f4da",
     name: "语言检测器",
     context: [
@@ -279,39 +305,6 @@ export const CN_MASKS: BuiltinMask[] = [
       presence_penalty: 0,
       frequency_penalty: 0,
       sendMemory: true,
-      historyMessageCount: 4,
-      compressMessageLengthThreshold: 1000,
-    },
-    lang: "cn",
-    builtin: true,
-    createdAt: 1688899480536,
-  },
-  {
-    avatar: "1f4b8",
-    name: "创业点子王",
-    context: [
-      {
-        id: "idea-0",
-        role: "user",
-        content:
-          "在企业 B2B SaaS 领域中想 3 个创业点子。创业点子应该有一个强大而引人注目的使命，并以某种方式使用人工智能。避免使用加密货币或区块链。创业点子应该有一个很酷很有趣的名字。这些想法应该足够引人注目，这样投资者才会兴奋地投资数百万美元。",
-        date: "",
-      },
-      {
-        id: "idea-1",
-        role: "assistant",
-        content:
-          "1. VantageAI - 一个基于人工智能的企业智能平台，帮助中小企业利用数据分析和机器学习来优化其业务流程，提高生产效率并实现可持续发展。\n\n2. HoloLogix - 一个全新的日志处理平台，使用人工智能技术来分析和识别分散的数据源。它可以精确地分析和解释您的日志，从而与整个组织共享并提高数据可视化和分析效率。\n\n3. SmartPath - 一种基于数据的销售和营销自动化平台，可以理解买家的购买行为并根据这些行为提供最佳的营销计划和过程。该平台可以与Salesforce等其他外部工具整合，以更好地掌握您的客户关系管理。",
-        date: "",
-      },
-    ],
-    modelConfig: {
-      model: "gpt-3.5-turbo",
-      temperature: 1,
-      max_tokens: 2000,
-      presence_penalty: 0,
-      frequency_penalty: 0,
-      sendMemory: false,
       historyMessageCount: 4,
       compressMessageLengthThreshold: 1000,
     },
