@@ -4,7 +4,7 @@ FROM base AS deps
 
 RUN apk add --no-cache libc6-compat
 
-WORKDIR /app
+WORKDIR /mydata/chatGPT
 
 COPY package.json yarn.lock ./
 
@@ -18,14 +18,14 @@ RUN apk update && apk add --no-cache git
 ENV OPENAI_API_KEY=""
 ENV CODE=""
 
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+WORKDIR /mydata/chatGPT
+COPY --from=deps /mydata/chatGPT/node_modules ./node_modules
 COPY . .
 
 RUN yarn build
 
 FROM base AS runner
-WORKDIR /app
+WORKDIR /mydata/chatGPT
 
 RUN apk add proxychains-ng
 
@@ -33,10 +33,10 @@ ENV PROXY_URL=""
 ENV OPENAI_API_KEY=""
 ENV CODE=""
 
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/.next/server ./.next/server
+COPY --from=builder /mydata/chatGPT/public ./public
+COPY --from=builder /mydata/chatGPT/.next/standalone ./
+COPY --from=builder /mydata/chatGPT/.next/static ./.next/static
+COPY --from=builder /mydata/chatGPT/.next/server ./.next/server
 
 EXPOSE 3000
 
