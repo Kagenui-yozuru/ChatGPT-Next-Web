@@ -161,7 +161,7 @@ const tw: PartialLocaleType = {
     DefaultTopic: "新的對話",
     BotHello: "請問需要我的協助嗎？",
     BotAbout:
-      "本平台由 [Yozuru](http://82.156.158.48/) 基於 [ChatGPT Next](https://github.com/Yidadaa/ChatGPT-Next-Web) 搭建,僅為個人以及身邊的朋友提供服務。每次對話都會 **產生費用** ，所以請避免進行無意義的對話（當然，你可以與它愉快地玩耍，這是有意義的）。\n" +
+      "本平台由 [Yozuru](https://yozuru.cn/) 基於 [ChatGPT Next](https://github.com/Yidadaa/ChatGPT-Next-Web) 搭建,僅為個人以及身邊的朋友提供服務。每次對話都會 **產生費用** ，所以請避免進行無意義的對話（當然，你可以與它愉快地玩耍，這是有意義的）。\n" +
       '此外，本平台內置了一些常用的 Prompt 和 "Mask" ，它們非常實用。如果需要使用除 gpt-3.5-turbo 以外的模型，請與我聯系。',
     Error: "出錯了，請稍後再嘗試",
     Prompt: {
