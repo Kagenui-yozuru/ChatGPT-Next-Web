@@ -122,7 +122,7 @@ export function SideBar(props: { className?: string }) {
         </div>
         <div className={styles["sidebar-sub-title"]}>
           Deployed by{" "}
-          <a href={"http://82.156.158.48"} target="_blank">
+          <a href={"https://yozuru.cn/"} target="_blank">
             Yozuru
           </a>
           <br />
