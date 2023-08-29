@@ -30,6 +30,32 @@ const ACCESS_CODES = (function getAccessCodes(): Set<string> {
   }
 })();
 
+const API_KEY_MAP = (function getApiKeyMap(): Map<string, string> {
+  const code = process.env.CODE;
+  const apiKey = process.env.OPENAI_API_KEY;
+
+  try {
+    const codes = (code?.split(",") ?? [])
+      .filter((v) => !!v)
+      .map((v) => md5.hash(v.trim()));
+
+    const apiKeys = (apiKey?.split(",") ?? []).filter((v) => !!v);
+
+    const apiKeyMap = new Map<string, string>();
+
+    const length = Math.max(codes.length, apiKeys.length);
+    for (let i = 0; i < length; i++) {
+      const codeIndex = i < codes.length ? codes[i] : codes[codes.length - 1];
+      const apiKeyIndex =
+        i < apiKeys.length ? apiKeys[i] : apiKeys[apiKeys.length - 1];
+      apiKeyMap.set(codeIndex, apiKeyIndex);
+    }
+    return apiKeyMap;
+  } catch (e) {
+    return new Map();
+  }
+})();
+
 export const getServerSideConfig = () => {
   if (typeof process === "undefined") {
     throw Error(
@@ -42,6 +68,7 @@ export const getServerSideConfig = () => {
     code: process.env.CODE,
     codes: ACCESS_CODES,
     needCode: ACCESS_CODES.size > 0,
+    apiKeyMap: API_KEY_MAP,
     baseUrl: process.env.BASE_URL,
     proxyUrl: process.env.PROXY_URL,
     isVercel: !!process.env.VERCEL,
