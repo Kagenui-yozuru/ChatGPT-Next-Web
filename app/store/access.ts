@@ -4,8 +4,6 @@ import { DEFAULT_API_HOST, DEFAULT_MODELS, StoreKey } from "../constant";
 import { getHeaders } from "../client/api";
 import { BOT_HELLO } from "./chat";
 import { getClientConfig } from "../config/client";
-import { getServerSideConfig } from "@/app/config/server";
-import md5 from "spark-md5";
 
 export interface AccessControlStore {
   accessCode: string;
@@ -63,10 +61,7 @@ export const useAccessStore = create<AccessControlStore>()(
 
         // has token or has code or disabled access control
         return (
-          !!get().token ||
-          (!!get().accessCode &&
-            getServerSideConfig().codes.has(md5.hash(get().accessCode))) ||
-          !get().enabledAccessControl()
+          !!get().token || !!get().accessCode || !get().enabledAccessControl()
         );
       },
       fetch() {
