@@ -2,6 +2,8 @@ FROM node:18-alpine AS base
 
 FROM base AS deps
 
+ARG ALPINE_MIRROR="https://mirrors.aliyun.com/alpine/v3.18/main"
+RUN echo "${ALPINE_MIRROR}" > /etc/apk/repositories
 RUN apk add --no-cache libc6-compat
 
 WORKDIR /mydata/chatGPT
@@ -13,6 +15,8 @@ RUN yarn install
 
 FROM base AS builder
 
+ARG ALPINE_MIRROR="https://mirrors.aliyun.com/alpine/v3.18/main"
+RUN echo "${ALPINE_MIRROR}" > /etc/apk/repositories
 RUN apk update && apk add --no-cache git
 
 ENV OPENAI_API_KEY=""
@@ -25,6 +29,8 @@ COPY . .
 RUN yarn build
 
 FROM base AS runner
+ARG ALPINE_MIRROR="https://mirrors.aliyun.com/alpine/v3.18/main"
+RUN echo "${ALPINE_MIRROR}" > /etc/apk/repositories
 WORKDIR /mydata/chatGPT
 
 RUN apk add proxychains-ng
