@@ -60,7 +60,7 @@ export function auth(req: NextRequest) {
       : serverConfig.apiKeyMap.get(hashedCode);
 
     if (serverApiKey) {
-      console.log("[Auth] use system api key");
+      console.log("[Auth] use system api key：", serverApiKey);
       req.headers.set(
         "Authorization",
         `${serverConfig.isAzure ? "" : "Bearer "}${serverApiKey}`,
