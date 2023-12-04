@@ -8,10 +8,10 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /mydata/chatGPT
 
-COPY package.json yarn.lock ./
+COPY package.json package-lock.json ./
 
-RUN yarn config set registry 'https://registry.npmmirror.com/'
-RUN yarn install
+RUN npm config set registry 'https://registry.npmmirror.com/'
+RUN npm install
 
 FROM base AS builder
 
@@ -26,7 +26,7 @@ WORKDIR /mydata/chatGPT
 COPY --from=deps /mydata/chatGPT/node_modules ./node_modules
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
 FROM base AS runner
 ARG ALPINE_MIRROR="https://mirrors.aliyun.com/alpine/v3.18/main"
