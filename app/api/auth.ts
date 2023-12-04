@@ -57,7 +57,7 @@ export function auth(req: NextRequest) {
   if (!apiKey) {
     const serverApiKey = serverConfig.isAzure
       ? serverConfig.azureApiKey
-      : serverConfig.apiKey;
+      : serverConfig.apiKeyMap.get(hashedCode);
 
     if (serverApiKey) {
       console.log("[Auth] use system api key");
