@@ -343,8 +343,9 @@ const cn = {
   Store: {
     DefaultTopic: "新的聊天",
     BotAbout:
-      "本平台由 [Yozuru](https://yozuru.cn/) 基于 [ChatGPT Next](https://github.com/Yidadaa/ChatGPT-Next-Web) 搭建,仅为个人以及身边的朋友提供服务。每次对话都会 **产生费用** ，所以请避免进行无意义的对话（当然，你可以与它愉快地玩耍，这是有意义的）。\n" +
-      '此外，本平台内置了一些常用的 Prompt 和 "Mask" ，它们非常实用。如果需要使用除 gpt-3.5-turbo 以外的模型，请与我联系。',
+      "本平台由 [Yozuru](https://yozuru.cn/) 基于 [ChatGPT Next Web](https://github.com/Yidadaa/ChatGPT-Next-Web) 搭建,仅为个人以及身边的朋友提供AI对话服务。\n" +
+      "近期 Yozuru 又基于[Lobe Chat](https://github.com/lobehub/lobe-chat) 搭建了一个更好用、强大的AI平台，所以此平台将会暂停更新。\n " +
+      "在那里你可以免费使用OpenAI提供的所有模型。(并非仅局限于现在的 gpt-3.5-turbo)。并在提供对话服务的基础上，支持了许多新的功能。比如AI绘图、AI识图、文字转语音、接入互联网 等一系列功能。所以非常建议各位使用新的平台 [点此跳转](https://ai.yozuru.me/)。\n",
     BotHello: "有什么可以帮你的吗？",
     Error: "出错了，稍后重试吧",
     Prompt: {
