@@ -6,7 +6,7 @@ ARG ALPINE_MIRROR="https://mirrors.aliyun.com/alpine/v3.18/main"
 RUN echo "${ALPINE_MIRROR}" > /etc/apk/repositories
 RUN apk add --no-cache libc6-compat
 
-WORKDIR /mydata/chatGPT
+WORKDIR .
 
 COPY package.json package-lock.json ./
 
@@ -22,8 +22,8 @@ RUN apk update && apk add --no-cache git
 ENV OPENAI_API_KEY=""
 ENV CODE=""
 
-WORKDIR /mydata/chatGPT
-COPY --from=deps /mydata/chatGPT/node_modules ./node_modules
+WORKDIR .
+COPY --from=deps ./node_modules ./node_modules
 COPY . .
 
 RUN npm run build
@@ -31,7 +31,7 @@ RUN npm run build
 FROM base AS runner
 ARG ALPINE_MIRROR="https://mirrors.aliyun.com/alpine/v3.18/main"
 RUN echo "${ALPINE_MIRROR}" > /etc/apk/repositories
-WORKDIR /mydata/chatGPT
+WORKDIR .
 
 RUN apk add proxychains-ng
 
@@ -39,10 +39,10 @@ ENV PROXY_URL=""
 ENV OPENAI_API_KEY=""
 ENV CODE=""
 
-COPY --from=builder /mydata/chatGPT/public ./public
-COPY --from=builder /mydata/chatGPT/.next/standalone ./
-COPY --from=builder /mydata/chatGPT/.next/static ./.next/static
-COPY --from=builder /mydata/chatGPT/.next/server ./.next/server
+COPY --from=builder ./public ./public
+COPY --from=builder ./.next/standalone ./
+COPY --from=builder ./.next/static ./.next/static
+COPY --from=builder ./.next/server ./.next/server
 
 EXPOSE 3000
 
